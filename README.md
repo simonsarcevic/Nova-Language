@@ -1,5 +1,4 @@
 # Nova Language
-[![Ask DeepWiki](https://devin.ai/assets/askdeepwiki.png)](https://deepwiki.com/simonsarcevic/Nova-Language)
 
 Nova is a simple, dynamically-typed, interpreted programming language built with TypeScript. This repository contains the source code for the Nova interpreter, which includes a lexer, parser, and tree-walk interpreter.
 
