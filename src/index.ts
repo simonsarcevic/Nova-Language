@@ -3,6 +3,7 @@ import * as path from 'path';
 
 import { Lexer } from './lexer';
 import { Parser } from './parser';
+import { Interpreter } from './interpreter';
 
 const args = process.argv.slice(2);
 
@@ -27,16 +28,12 @@ if (!filePath.endsWith('.nv')) {
 const sourceCode = fs.readFileSync(filePath, 'utf-8');
 const lexer = new Lexer(sourceCode);
 const parser = new Parser(lexer);
+const interpreter = new Interpreter();
 
 const ast = parser.parse();
+interpreter.run(ast);
 
 let token 
 do {
     token = lexer.getNextToken();
-    console.log(token);
 } while (token.type !== 'EOF');
-
-console.log('Runnig NV code:', filePath);
-console.log('----------');
-console.log(JSON.stringify(ast, null, 2));
-console.log(sourceCode);
